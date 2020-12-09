@@ -19,6 +19,14 @@ import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
+import NavBar from './components/NavBar';
+import SideBar from './components/SideBar';
+import UserProfile from './components/pages/UserProfile';
+import IntakePacket from './components/pages/IntakePacket';
+import Analytics from './components/pages/Analytics';
+import Guests from './components/pages/Guests/Guests';
+
+import './styles/app.scss';
 
 ReactDOM.render(
   <Router>
@@ -42,10 +50,17 @@ function App() {
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
+      <Route path="/" component={SideBar} />
+      <Route path="/" component={NavBar} />
       <Switch>
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
         <Route path="/landing" component={LandingPage} />
+        <Route path="/me" component={UserProfile} />
+        <Route path="/intake" component={IntakePacket} />
+        <Route path="/analytics" component={Analytics} />
+        <Route path="/guests" component={Guests} />
+
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"
