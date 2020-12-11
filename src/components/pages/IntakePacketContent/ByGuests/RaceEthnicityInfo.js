@@ -1,8 +1,17 @@
 import React from 'react';
-import { Form, Input, Button, Space } from 'antd';
+import { Form, Input, Button, Space, Checkbox, Row, Col } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-import Checkbox from 'antd/lib/checkbox/Checkbox';
 const RaceEthnicityInfo = () => {
+  const options = [
+    'Hispanic/Latino',
+    'American Indian or Alaska Native',
+    'Asian',
+    'Black orAfricanAmerican',
+    'NativeHawaiianOr PacificIslander',
+    'White',
+    'Unknown',
+    'Refuse',
+  ];
   return (
     <>
       <h1>Race/Ethnicity Info</h1>
@@ -18,35 +27,23 @@ const RaceEthnicityInfo = () => {
                 <Space
                   key={field.key}
                   style={{ display: 'flex', marginBottom: 8 }}
-                  align="baseline"
+                  align="text-top"
                 >
                   <Form.Item label="Fullname">
                     <Input placeholder="First Last" />
                   </Form.Item>
-                  <Form.Item label="Hispanic/Latino">
-                    <Checkbox />
-                  </Form.Item>
-                  <Form.Item label="AmericanIndian orAlaska Native">
-                    <Checkbox />
-                  </Form.Item>
-                  <Form.Item label="Asian">
-                    <Checkbox />
-                  </Form.Item>
-                  <Form.Item label="Black orAfricanAmerican">
-                    <Checkbox />
-                  </Form.Item>
-                  <Form.Item label="NativeHawaiianOr PacificIslander">
-                    <Checkbox />
-                  </Form.Item>
-                  <Form.Item label="White">
-                    <Checkbox />
-                  </Form.Item>
-                  <Form.Item label="Unknown">
-                    <Checkbox />
-                  </Form.Item>
-                  <Form.Item label="Refuse">
-                    <Checkbox />
-                  </Form.Item>
+                  <Checkbox.Group style={{ width: '100%' }}>
+                    <Row>
+                      {options.map((race, key) => (
+                        <Col span={3}>
+                          <Form.Item label={race}>
+                            <Checkbox value={key} />
+                          </Form.Item>
+                        </Col>
+                      ))}
+                    </Row>
+                  </Checkbox.Group>
+
                   <MinusCircleOutlined onClick={() => remove(field.name)} />
                 </Space>
               ))}
