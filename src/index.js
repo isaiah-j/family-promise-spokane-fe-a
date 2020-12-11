@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -19,6 +20,14 @@ import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
+import NavBar from './components/NavBar';
+import SideBar from './components/SideBar';
+import UserProfile from './components/pages/UserProfile';
+import IntakePacket from './components/pages/IntakePacket';
+import Analytics from './components/pages/Analytics';
+import Guests from './components/pages/Guests/Guests';
+
+import './styles/app.scss';
 
 ReactDOM.render(
   <Router>
@@ -30,6 +39,9 @@ ReactDOM.render(
 );
 
 function App() {
+  useEffect(() => {
+    console.log('test');
+  }, []);
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
   // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
   const history = useHistory();
@@ -42,10 +54,17 @@ function App() {
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
+      <Route path="/" component={SideBar} />
+      <Route path="/" component={NavBar} />
       <Switch>
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
         <Route path="/landing" component={LandingPage} />
+        <Route path="/me" component={UserProfile} />
+        <Route path="/intake" component={IntakePacket} />
+        <Route path="/analytics" component={Analytics} />
+        <Route path="/guests" component={Guests} />
+
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"
