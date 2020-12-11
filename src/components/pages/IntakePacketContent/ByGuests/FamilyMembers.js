@@ -9,11 +9,15 @@ import {
   InputNumber,
 } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import Checkbox from 'antd/lib/checkbox/Checkbox';
 const FamilyMembers = () => {
   return (
     <>
       <h1>Family Members</h1>
       <Form layout="vertical">
+        <Form.Item>
+          <Checkbox>Someone in my home is a sex offender.</Checkbox>
+        </Form.Item>
         <Form.List name="users">
           {(fields, { add, remove }) => (
             <>
