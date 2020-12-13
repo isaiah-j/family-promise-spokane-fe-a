@@ -1,23 +1,24 @@
 import React from 'react';
 import { Form, Input, Button, Space, Checkbox, Row, Col } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+
 const RaceEthnicityInfo = () => {
   const options = [
-    'Hispanic/Latino',
-    'American Indian or Alaska Native',
-    'Asian',
-    'Black orAfricanAmerican',
-    'NativeHawaiianOr PacificIslander',
-    'White',
-    'Unknown',
-    'Refuse',
+    'Alcohol Abuse',
+    'Developmental Disability',
+    'Chronis Health Issues',
+    'Drug Abuse',
+    'HIV/AIDS',
+    'Mental Illness',
+    'Physical Disability',
+    'Are any conditions indefinite?',
   ];
   return (
     <>
       <h1>Race/Ethnicity Info</h1>
       <h3>
-        Please answer the following questions about race. Check all that apply
-        for EACH family member.
+        Please answer the following questions about b arriers. Check all that
+        apply for EACH family member.
       </h3>
       <Form layout="vertical">
         <Form.List name="users">
@@ -64,6 +65,12 @@ const RaceEthnicityInfo = () => {
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
+        </Form.Item>
+        <Form.Item label="Please list any documented disabilities or chronic health issues as well as any major allergies">
+          <Input autoSize={{ minRows: 3, maxRows: 5 }}></Input>
+        </Form.Item>
+        <Form.Item label="Please list Indefinite Conditions for each family member (Alcohol Abuse, Developmental Disability, Chronic Health Issue, Mental Illness, ....)">
+          <Input autoSize={{ minRows: 3, maxRows: 5 }}></Input>
         </Form.Item>
       </Form>
     </>
