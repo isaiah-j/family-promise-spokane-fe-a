@@ -10,7 +10,9 @@ import {
 } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import Checkbox from 'antd/lib/checkbox/Checkbox';
-const FamilyMembers = () => {
+const FamilyMembers = ({ navigation, formData, setForm }) => {
+  const { previous, next } = navigation;
+  console.log(formData);
   return (
     <>
       <h1>Family Members</h1>
@@ -32,18 +34,18 @@ const FamilyMembers = () => {
                   </Form.Item>
                   <Form.Item label="Relationship">
                     <Select placeholder="Please select an option">
-                      <option value="spouse">Self</option>
-                      <option value="spouse">Spouse</option>
-                      <option value="child">Child</option>
-                      <option value="sibling">Sibling</option>
-                      <option value="other">Other</option>
+                      <Select.Option value="spouse">Self</Select.Option>
+                      <Select.Option value="spouse">Spouse</Select.Option>
+                      <Select.Option value="child">Child</Select.Option>
+                      <Select.Option value="sibling">Sibling</Select.Option>
+                      <Select.Option value="other">Other</Select.Option>
                     </Select>
                   </Form.Item>
                   <Form.Item label="Gender">
                     <Select placeholder="Please select an option">
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-                      <option value="other">Other</option>
+                      <Select.Option value="male">Male</Select.Option>
+                      <Select.Option value="female">Female</Select.Option>
+                      <Select.Option value="other">Other</Select.Option>
                     </Select>
                   </Form.Item>
 
@@ -84,8 +86,11 @@ const FamilyMembers = () => {
           )}
         </Form.List>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
+          <Button type="primary" htmlType="button" onClick={previous}>
+            Previous
+          </Button>
+          <Button type="primary" htmlType="submit" onClick={next}>
+            Next
           </Button>
         </Form.Item>
       </Form>

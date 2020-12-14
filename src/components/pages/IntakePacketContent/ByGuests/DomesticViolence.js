@@ -1,7 +1,8 @@
 import React from 'react';
 import { Form, Button, DatePicker, Checkbox } from 'antd';
 
-const DomesticViolence = () => {
+const DomesticViolence = ({ navigation }) => {
+  const { previous, next } = navigation;
   return (
     <>
       <h1>Domestic DomesticViolence</h1>
@@ -33,8 +34,11 @@ const DomesticViolence = () => {
           anonymous HMIS{' '}
         </p>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
+          <Button type="primary" htmlType="button" onClick={previous}>
+            Previous
+          </Button>
+          <Button type="primary" htmlType="submit" onClick={next}>
+            Next
           </Button>
         </Form.Item>
       </Form>

@@ -3,7 +3,10 @@ import { Form, Input, Space, Button } from 'antd';
 
 import Checkbox from 'antd/lib/checkbox/Checkbox';
 
-const ContactInfo = () => {
+const ContactInfo = ({ navigation, formData, setForm }) => {
+  const { previous, next } = navigation;
+  const { fullName, Number } = formData;
+
   return (
     <>
       <h1>Contact Info</h1>
@@ -11,14 +14,23 @@ const ContactInfo = () => {
         <h3>Please included both adults personal phone numbers:</h3>
         <Space style={{ display: 'flex' }} align="baseline">
           <Form.Item>
-            <Input placeholder="Full Name"></Input>
+            <Input
+              placeholder="Full Name"
+              name="firstName"
+              value={fullName}
+              onChange={setForm}
+            ></Input>
           </Form.Item>
           <Form.Item>
-            <Input placeholder="Number"></Input>
+            <Input
+              placeholder="Number"
+              name="number"
+              value={Number}
+              onChange={setForm}
+            ></Input>
           </Form.Item>
         </Space>
         <Form.Item>
-          {/*onchange function takes in param of number toattach checkbox to num */}
           <Checkbox>Safe to leave message</Checkbox>
         </Form.Item>
         <Space style={{ display: 'flex', marginBottom: 8 }} align="baseline">
@@ -51,8 +63,8 @@ const ContactInfo = () => {
           </Form.Item>
         </Space>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
+          <Button type="primary" htmlType="button" onClick={next}>
+            Next
           </Button>
         </Form.Item>
       </Form>

@@ -16,15 +16,20 @@ const steps = [
   { id: 'RaceEthnicityInfo' },
   { id: 'BarriersPage' },
   { id: 'ChildSchoolInfo' },
-  { id: 'IdVerification' },
   { id: 'DomesticViolence' },
   { id: 'HomelessHistory' },
   { id: 'Insurance' },
 ];
+const defaultData = {
+  firstName: 'example',
+  number: 1234,
+};
+
 const IntakePacket = () => {
+  const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({ initialStep: 0, steps });
   const { id } = step;
-  const props = { navigation };
+  const props = { navigation, formData, setForm };
   switch (id) {
     case 'ContactInfo':
       return <ContactInfo {...props} />;
@@ -35,8 +40,6 @@ const IntakePacket = () => {
     case 'BarriersPage':
       return <BarriersPage {...props} />;
     case 'ChildSchoolInfo':
-      return <ChildSchoolInfo {...props} />;
-    case 'IdVerification':
       return <ChildSchoolInfo {...props} />;
     case 'DomesticViolence':
       return <DomesticViolence {...props} />;

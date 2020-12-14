@@ -2,7 +2,8 @@ import React from 'react';
 import { Form, Input, Button, Space, Checkbox, Row, Col } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
-const BarriersPage = () => {
+const BarriersPage = ({ navigation }) => {
+  const { previous, next } = navigation;
   const { TextArea } = Input;
   const options = [
     'Alcohol Abuse',
@@ -69,8 +70,11 @@ const BarriersPage = () => {
           <TextArea autoSize={{ minRows: 3, maxRows: 5 }}></TextArea>
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
+          <Button type="primary" htmlType="button" onClick={previous}>
+            Previous
+          </Button>
+          <Button type="primary" htmlType="submit" onClick={next}>
+            Next
           </Button>
         </Form.Item>
       </Form>

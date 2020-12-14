@@ -2,7 +2,8 @@ import React from 'react';
 import { Form, Input, Button, Space, Checkbox, Row, Col } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
-const RaceEthnicityInfo = () => {
+const RaceEthnicityInfo = ({ navigation }) => {
+  const { previous, next } = navigation;
   const options = [
     'Hispanic/Latino',
     'American Indian or Alaska Native',
@@ -62,8 +63,11 @@ const RaceEthnicityInfo = () => {
           )}
         </Form.List>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
+          <Button type="primary" htmlType="button" onClick={previous}>
+            Previous
+          </Button>
+          <Button type="primary" htmlType="submit" onClick={next}>
+            Next
           </Button>
         </Form.Item>
       </Form>

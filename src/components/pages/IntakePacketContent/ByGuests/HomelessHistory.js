@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Input, InputNumber, DatePicker, Button, Checkbox } from 'antd';
-const HomelessHistory = () => {
+const HomelessHistory = ({ navigation }) => {
+  const { previous, next } = navigation;
   return (
     <>
       <h1>History</h1>
@@ -41,9 +42,12 @@ const HomelessHistory = () => {
           <Input />
         </Form.Item>
 
-        <Form.Item label="">
-          <Button type="primary" htmlType="submit">
-            Submit
+        <Form.Item>
+          <Button type="primary" htmlType="button" onClick={previous}>
+            Previous
+          </Button>
+          <Button type="primary" htmlType="submit" onClick={next}>
+            Next
           </Button>
         </Form.Item>
       </Form>

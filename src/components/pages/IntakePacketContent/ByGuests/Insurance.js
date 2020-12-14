@@ -1,7 +1,8 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox, Select } from 'antd';
 
-const Insurance = () => {
+const Insurance = navigation => {
+  const { previous, next } = navigation;
   const { TextArea } = Input;
   const insuranceSources = [
     'State',
@@ -11,10 +12,14 @@ const Insurance = () => {
     'Medicare',
     'Other',
   ];
+
   return (
     <>
       <h1>Insurance</h1>
-      <Form layout="vertical">
+      <Form
+        layout="vertical"
+        style={{ maxWidth: '800px', alignItems: 'center' }}
+      >
         <Form.Item>
           <Checkbox>Do you have insurance?</Checkbox>
         </Form.Item>
@@ -29,8 +34,11 @@ const Insurance = () => {
           <TextArea />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
+          <Button type="primary" htmlType="button" onClick={previous}>
+            Previous
+          </Button>
+          <Button type="primary" htmlType="submit" onClick={next}>
+            Next
           </Button>
         </Form.Item>
       </Form>
