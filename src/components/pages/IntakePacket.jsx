@@ -7,6 +7,7 @@ import BarriersPage from './IntakePacketContent/ByGuests/BarriersPage';
 import ChildSchoolInfo from './IntakePacketContent/ByGuests/ChildSchoolInfo';
 import DomesticViolence from './IntakePacketContent/ByGuests/DomesticViolence';
 import HomelessHistory from './IntakePacketContent/ByGuests/HomelessHistory';
+import Insurance from './IntakePacketContent/ByGuests/Insurance';
 const IntakePacket = () => {
   return (
     <div className="container">
@@ -19,6 +20,7 @@ const IntakePacket = () => {
       <IdVerification />
       <DomesticViolence />
       <HomelessHistory />
+      <Insurance />
     </div>
   );
 };
