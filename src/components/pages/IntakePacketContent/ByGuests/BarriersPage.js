@@ -3,6 +3,7 @@ import { Form, Input, Button, Space, Checkbox, Row, Col } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
 const BarriersPage = () => {
+  const { TextArea } = Input;
   const options = [
     'Alcohol Abuse',
     'Developmental Disability',
@@ -61,16 +62,16 @@ const BarriersPage = () => {
             </>
           )}
         </Form.List>
+        <Form.Item label="Please list any documented disabilities or chronic health issues as well as any major allergies">
+          <TextArea autoSize={{ minRows: 3, maxRows: 5 }}></TextArea>
+        </Form.Item>
+        <Form.Item label="Please list Indefinite Conditions for each family member (Alcohol Abuse, Developmental Disability, Chronic Health Issue, Mental Illness, ....)">
+          <TextArea autoSize={{ minRows: 3, maxRows: 5 }}></TextArea>
+        </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
-        </Form.Item>
-        <Form.Item label="Please list any documented disabilities or chronic health issues as well as any major allergies">
-          <Input autoSize={{ minRows: 3, maxRows: 5 }}></Input>
-        </Form.Item>
-        <Form.Item label="Please list Indefinite Conditions for each family member (Alcohol Abuse, Developmental Disability, Chronic Health Issue, Mental Illness, ....)">
-          <Input autoSize={{ minRows: 3, maxRows: 5 }}></Input>
         </Form.Item>
       </Form>
     </>

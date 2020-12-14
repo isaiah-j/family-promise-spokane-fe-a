@@ -4,6 +4,7 @@ import ContactInfo from './IntakePacketContent/ByGuests/ContactInfo';
 import FamilyMembers from './IntakePacketContent/ByGuests/FamilyMembers';
 import RaceEthnicityInfo from './IntakePacketContent/ByGuests/RaceEthnicityInfo';
 import BarriersPage from './IntakePacketContent/ByGuests/BarriersPage';
+import ChildSchoolInfo from './IntakePacketContent/ByGuests/ChildSchoolInfo';
 const IntakePacket = () => {
   return (
     <div className="container">
@@ -12,6 +13,7 @@ const IntakePacket = () => {
       <FamilyMembers />
       <RaceEthnicityInfo />
       <BarriersPage />
+      <ChildSchoolInfo />
       <IdVerification />
     </div>
   );

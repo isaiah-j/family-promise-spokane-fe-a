@@ -1,16 +1,9 @@
 import React from 'react';
-import {
-  Form,
-  Input,
-  Button,
-  Space,
-  Select,
-  DatePicker,
-  InputNumber,
-} from 'antd';
+import { Form, Input, Button, Space, Select, Checkbox } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-import Checkbox from 'antd/lib/checkbox/Checkbox';
+
 const ChildSchoolInfo = () => {
+  const { TextArea } = Input;
   return (
     <>
       <h1>School Verification</h1>
@@ -30,14 +23,10 @@ const ChildSchoolInfo = () => {
                   <Form.Item label="Highestgrade completed">
                     <Select placeholder="Please select an option">
                       <option value="spouse">Self</option>
-                      <option value="spouse">Spouse</option>
-                      <option value="child">Child</option>
-                      <option value="sibling">Sibling</option>
-                      <option value="other">Other</option>
                     </Select>
                   </Form.Item>
                   <Form.Item label="Currently Enrolled?">
-                    <Checkbox></Checkbox>
+                    <Checkbox />
                   </Form.Item>
                   <Form.Item label="Attendence Status">
                     <Select placeholder="Please select an option">
@@ -57,7 +46,7 @@ const ChildSchoolInfo = () => {
                     <Input placeholder="ex. Soap Lake MSHS" />
                   </Form.Item>
                   <Form.Item label="Connected w/ McKinney-Vento School">
-                    <Checkbox></Checkbox>
+                    <Checkbox />
                   </Form.Item>
                   <MinusCircleOutlined onClick={() => remove(field.name)} />
                 </Space>
@@ -74,10 +63,10 @@ const ChildSchoolInfo = () => {
               </Form.Item>
             </>
           )}
-          <Form.Item label="IF YOUR CHILD(REN) IS/ARE NOT ENROLLED IN SCHOOL AT THIS TIME PLEASE INDICATE THE REASON WHY BELOW">
-            <Input autoSize={{ minRows: 3, maxRows: 5 }}></Input>
-          </Form.Item>
         </Form.List>
+        <Form.Item label="IF YOUR CHILD(REN) IS/ARE NOT ENROLLED IN SCHOOL AT THIS TIME PLEASE INDICATE THE REASON WHY BELOW">
+          <TextArea autoSize={{ minRows: 3, maxRows: 5 }} />
+        </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">
             Submit
