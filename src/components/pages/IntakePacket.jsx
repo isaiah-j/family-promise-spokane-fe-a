@@ -37,7 +37,7 @@ const IntakePacket = () => {
     case 'ChildSchoolInfo':
       return <ChildSchoolInfo {...props} />;
     case 'IdVerification':
-      return <x {...props} />;
+      return <ChildSchoolInfo {...props} />;
     case 'DomesticViolence':
       return <DomesticViolence {...props} />;
     case 'HomelessHistory':
