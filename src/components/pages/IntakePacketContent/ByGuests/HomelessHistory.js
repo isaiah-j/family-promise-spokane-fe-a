@@ -9,20 +9,23 @@ const HomelessHistory = () => {
           <Input />
         </Form.Item>
         <Form.Item label="Where did you stay last night? How long were you at this location?">
-          <Input.Group>
-            <Form.Item label="">
-              <Input>Thing</Input>
+          <Input.Group style={{ display: 'flex' }}>
+            <Form.Item label="Location">
+              <Input />
             </Form.Item>
-            <Form.Item label="">
+            <Form.Item label="Days">
               <InputNumber />
             </Form.Item>
-            <Form.Item label="">
+            <Form.Item label="Months">
+              <InputNumber />
+            </Form.Item>
+            <Form.Item label="Years">
               <InputNumber />
             </Form.Item>
           </Input.Group>
         </Form.Item>
         <Form.Item label="Aprroximately when did you become homeless?">
-          <DatePicker />
+          <DatePicker format="DD/MM/YYYY" />
         </Form.Item>
         <Form.Item label="How many times in the last 3 years have you been homeless?">
           <InputNumber />
