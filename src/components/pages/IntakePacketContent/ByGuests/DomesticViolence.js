@@ -5,7 +5,7 @@ const DomesticViolence = () => {
   return (
     <>
       <h1>Domestic DomesticViolence</h1>
-      <Form>
+      <Form layout="vertical" style={{ width: '50%' }}>
         <Form.Item label="Are you Currently fleeing a DV situation?">
           <Checkbox>Y</Checkbox>
           <Checkbox>N</Checkbox>
@@ -26,7 +26,7 @@ const DomesticViolence = () => {
           <Checkbox>N</Checkbox>
         </Form.Item>
         <p>If not, please ask supervisor for the YWCA phone number to call.</p>
-        <p>
+        <p style={{ maxWidth: '800px' }}>
           If you wish to be anonymous AND you have registered with the HFCA, we
           will need your HMIS # - This number is assigned to you by the HFCA -
           If you have not registered with the HFCA we can assign you an
