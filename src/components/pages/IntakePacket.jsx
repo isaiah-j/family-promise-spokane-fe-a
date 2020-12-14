@@ -3,6 +3,7 @@ import IdVerification from './IntakePacketContent/BySupervisor/IdVerification';
 import ContactInfo from './IntakePacketContent/ByGuests/ContactInfo';
 import FamilyMembers from './IntakePacketContent/ByGuests/FamilyMembers';
 import RaceEthnicityInfo from './IntakePacketContent/ByGuests/RaceEthnicityInfo';
+import BarriersPage from './IntakePacketContent/ByGuests/BarriersPage';
 const IntakePacket = () => {
   return (
     <div className="container">
@@ -10,6 +11,7 @@ const IntakePacket = () => {
       <ContactInfo />
       <FamilyMembers />
       <RaceEthnicityInfo />
+      <BarriersPage />
       <IdVerification />
     </div>
   );

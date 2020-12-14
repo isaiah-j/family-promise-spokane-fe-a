@@ -15,7 +15,7 @@ const BarriersPage = () => {
   ];
   return (
     <>
-      <h1>Race/Ethnicity Info</h1>
+      <h1>Barriers</h1>
       <h3>
         Please answer the following questions about b arriers. Check all that
         apply for EACH family member.
