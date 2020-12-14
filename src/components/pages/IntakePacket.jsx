@@ -5,6 +5,7 @@ import FamilyMembers from './IntakePacketContent/ByGuests/FamilyMembers';
 import RaceEthnicityInfo from './IntakePacketContent/ByGuests/RaceEthnicityInfo';
 import BarriersPage from './IntakePacketContent/ByGuests/BarriersPage';
 import ChildSchoolInfo from './IntakePacketContent/ByGuests/ChildSchoolInfo';
+import DomesticViolence from './IntakePacketContent/ByGuests/DomesticViolence';
 const IntakePacket = () => {
   return (
     <div className="container">
@@ -15,6 +16,7 @@ const IntakePacket = () => {
       <BarriersPage />
       <ChildSchoolInfo />
       <IdVerification />
+      <DomesticViolence />
     </div>
   );
 };
