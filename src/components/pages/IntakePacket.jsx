@@ -21,8 +21,65 @@ const steps = [
   { id: 'Insurance' },
 ];
 const defaultData = {
-  firstName: 'example',
-  number: 1234,
+  familyInfo: {
+    user_id: 1,
+    case_number: 25,
+    phone_one: {
+      name: '',
+      number: '',
+      safeToLeaveMssg: false,
+    },
+    phone_two: {
+      name: '',
+      number: '',
+      safeToLeaveMssg: false,
+    },
+    emergencyContact: {
+      name: '',
+      number: '',
+    },
+    vehicle: {
+      make: '',
+      year: '',
+      color: '',
+      model: '',
+      license_plate: '',
+    },
+    last_permanent_address: '',
+    homeless_info: {
+      prior_location: '',
+      current_location: '',
+      num_times_homeless: 0,
+      total_len_homeless: 0,
+      homeless_start_date: '',
+      length_at_prior_location: '',
+      length_at_current_location: '',
+    },
+    gov_benefits: {
+      RRH: false,
+      snap: false,
+      'cps/fps': false,
+      foodstamps: false,
+      housing_voucher: false,
+      veteran_services: false,
+    },
+    insurance: {
+      pregnancies: false,
+      has_insurance: false,
+      members_covered: 0,
+      health_insurance_type: '',
+    },
+    domestic_violence_info: {
+      fleeing_dv: false,
+      YWCA_contacted: false,
+      has_court_order: false,
+      date_last_incident: false,
+      anonymity_preferred: false,
+    },
+    avatar_url:
+      'https://microlancer.lancerassets.com/v2/services/91/166a65bdfc45e5ade4cee71859b871/large_avatar.jpg',
+  },
+  familyMember: [],
 };
 
 const IntakePacket = () => {

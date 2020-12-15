@@ -5,10 +5,10 @@ import Checkbox from 'antd/lib/checkbox/Checkbox';
 
 const ContactInfo = ({ navigation, formData, setForm }) => {
   const { previous, next } = navigation;
-  const { fullName, Number } = formData;
+  const { familyInfo } = formData;
 
   return (
-    <>
+    <div style={{ width: '50%' }}>
       <h1>Contact Info</h1>
       <Form layout="vertical">
         <h3>Please included both adults personal phone numbers:</h3>
@@ -16,16 +16,16 @@ const ContactInfo = ({ navigation, formData, setForm }) => {
           <Form.Item>
             <Input
               placeholder="Full Name"
-              name="firstName"
-              value={fullName}
+              name="familyInfo.phone_one.name"
+              value={familyInfo.phone_one.name}
               onChange={setForm}
             ></Input>
           </Form.Item>
           <Form.Item>
             <Input
               placeholder="Number"
-              name="number"
-              value={Number}
+              name="familyInfo.phone_one.number"
+              value={familyInfo.phone_one.number}
               onChange={setForm}
             ></Input>
           </Form.Item>
@@ -68,7 +68,7 @@ const ContactInfo = ({ navigation, formData, setForm }) => {
           </Button>
         </Form.Item>
       </Form>
-    </>
+    </div>
   );
 };
 
