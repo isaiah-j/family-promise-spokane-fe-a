@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Form, Input, Button, Checkbox, Select, InputNumber, Card } from 'antd';
 
 const Insurance = ({ navigation, tempFormStyle, formData, setForm }) => {
@@ -47,6 +48,10 @@ const Insurance = ({ navigation, tempFormStyle, formData, setForm }) => {
               onChange={setForm}
             />
           </Form.Item>
+          <Link to="/me">
+            {' '}
+            <Button type="submit">Submit </Button>
+          </Link>
         </Form>
       </Card>
     </div>

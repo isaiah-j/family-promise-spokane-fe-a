@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Input, Button, Space, Select, Card } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 const FamilyMembers = ({ navigation, formData, setForm, tempFormStyle }) => {
+  const { Option } = Select;
   const { previous, next } = navigation;
   const addMember = fullname => {
     const famMem = {
@@ -45,6 +46,13 @@ const FamilyMembers = ({ navigation, formData, setForm, tempFormStyle }) => {
     delete famMem['key'];
     formData.familyMember.push(famMem);
   };
+  function handleChange(value) {
+    console.log(value);
+    // setForm({
+    //   ...formData,
+    //   demographics: { ...formData.demographics, gender: value },
+    // }); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
+  }
 
   return (
     <div style={tempFormStyle}>
@@ -74,12 +82,16 @@ const FamilyMembers = ({ navigation, formData, setForm, tempFormStyle }) => {
                       <Input placeholder="First Last" />
                     </Form.Item>
                     <Form.Item label="Relationship">
-                      <Select placeholder="Please select an option">
-                        <Select.Option value="self">Self</Select.Option>
-                        <Select.Option value="spouse">Spouse</Select.Option>
-                        <Select.Option value="child">Child</Select.Option>
-                        <Select.Option value="sibling">Sibling</Select.Option>
-                        <Select.Option value="other">Other</Select.Option>
+                      <Select
+                        name="gender"
+                        placeholder="Please select an option"
+                        onChange={handleChange}
+                      >
+                        <Option value="self">Self</Option>
+                        <Option value="spouse">Spouse</Option>
+                        <Option value="child">Child</Option>
+                        <Option value="sibling">Sibling</Option>
+                        <Option value="other">Other</Option>
                       </Select>
                     </Form.Item>
                     <MinusCircleOutlined onClick={() => remove(field.name)} />

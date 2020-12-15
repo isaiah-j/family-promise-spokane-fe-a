@@ -17,6 +17,9 @@ const FamilyDemographics = ({
   setForm,
   tempFormStyle,
 }) => {
+  function handleChange(value) {
+    console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
+  }
   const { previous, next } = navigation;
 
   return (
@@ -44,7 +47,10 @@ const FamilyDemographics = ({
                     align="baseline"
                   >
                     <Form.Item label="Gender">
-                      <Select placeholder="Please select an option">
+                      <Select
+                        placeholder="Please select an option"
+                        onChange={handleChange}
+                      >
                         <Select.Option value="male">Male</Select.Option>
                         <Select.Option value="female">Female</Select.Option>
                         <Select.Option value="other">Other</Select.Option>

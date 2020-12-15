@@ -3,13 +3,18 @@ import { Form, Input, Space, Button, Card } from 'antd';
 
 import Checkbox from 'antd/lib/checkbox/Checkbox';
 const ContactInfo = ({ navigation, formData, setForm, tempFormStyle }) => {
+  const [form] = Form.useForm();
   const { previous, next } = navigation;
   const { familyInfo, familyMember } = formData;
 
+  const onFinish = values => {
+    console.log(values);
+  };
+
   return (
     <div style={tempFormStyle}>
-      <Card title="Contact Info" bordered={false}>
-        <Form layout="vertical" span={18}>
+      <Card title="Contact Info" bordered={false} onSubmit={onFinish}>
+        <Form layout="vertical" name="control-hooks" span={18} form={form}>
           <Form.Item>
             <Button
               type="primary"
@@ -94,6 +99,9 @@ const ContactInfo = ({ navigation, formData, setForm, tempFormStyle }) => {
               ></Input>
             </Form.Item>
           </Space>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
         </Form>
       </Card>
     </div>
