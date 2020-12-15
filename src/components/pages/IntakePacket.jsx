@@ -10,6 +10,7 @@ import ChildSchoolInfo from './IntakePacketContent/ByGuests/ChildSchoolInfo';
 import DomesticViolence from './IntakePacketContent/ByGuests/DomesticViolence';
 import HomelessHistory from './IntakePacketContent/ByGuests/HomelessHistory';
 import Insurance from './IntakePacketContent/ByGuests/Insurance';
+
 const steps = [
   { id: 'ContactInfo' },
   { id: 'FamilyMembers' },
@@ -20,6 +21,7 @@ const steps = [
   { id: 'HomelessHistory' },
   { id: 'Insurance' },
 ];
+
 const defaultData = {
   familyInfo: {
     user_id: 1,
@@ -83,10 +85,12 @@ const defaultData = {
 };
 
 const IntakePacket = () => {
+  const tempFormStyle = { marginLeft: '25%', marginRight: '25%' };
+
   const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({ initialStep: 0, steps });
   const { id } = step;
-  const props = { navigation, formData, setForm };
+  const props = { navigation, formData, setForm, tempFormStyle };
   switch (id) {
     case 'ContactInfo':
       return <ContactInfo {...props} />;

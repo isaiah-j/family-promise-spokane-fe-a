@@ -2,11 +2,11 @@ import React from 'react';
 import { Form, Input, Button, Space, Select, Checkbox } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
-const ChildSchoolInfo = ({ navigation }) => {
+const ChildSchoolInfo = ({ navigation, tempFormStyle }) => {
   const { previous, next } = navigation;
   const { TextArea } = Input;
   return (
-    <>
+    <div style={tempFormStyle}>
       <h1>School Verification</h1>
       <Form layout="vertical">
         <Form.List name="users">
@@ -77,7 +77,7 @@ const ChildSchoolInfo = ({ navigation }) => {
           </Button>
         </Form.Item>
       </Form>
-    </>
+    </div>
   );
 };
 

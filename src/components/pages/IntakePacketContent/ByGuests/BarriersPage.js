@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input, Button, Space, Checkbox, Row, Col } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
-const BarriersPage = ({ navigation }) => {
+const BarriersPage = ({ navigation, tempFormStyle }) => {
   const { previous, next } = navigation;
   const { TextArea } = Input;
   const options = [
@@ -16,7 +16,7 @@ const BarriersPage = ({ navigation }) => {
     'Are any conditions indefinite?',
   ];
   return (
-    <>
+    <div style={tempFormStyle}>
       <h1>Barriers</h1>
       <h3>
         Please answer the following questions about b arriers. Check all that
@@ -78,7 +78,7 @@ const BarriersPage = ({ navigation }) => {
           </Button>
         </Form.Item>
       </Form>
-    </>
+    </div>
   );
 };
 

@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import { Form, Input, Space, Button } from 'antd';
 
 import Checkbox from 'antd/lib/checkbox/Checkbox';
-
-const ContactInfo = ({ navigation, formData, setForm }) => {
+const ContactInfo = ({ navigation, formData, setForm, tempFormStyle }) => {
   const { previous, next } = navigation;
-  const { familyInfo } = formData;
+  const { familyInfo, familyMember } = formData;
 
   return (
-    <div style={{ width: '50%' }}>
+    <div style={tempFormStyle}>
       <h1>Contact Info</h1>
       <Form layout="vertical">
         <h3>Please included both adults personal phone numbers:</h3>
-        <Space style={{ display: 'flex' }} align="baseline">
+        <Space style={{ display: 'flex' }}>
           <Form.Item>
             <Input
               placeholder="Full Name"

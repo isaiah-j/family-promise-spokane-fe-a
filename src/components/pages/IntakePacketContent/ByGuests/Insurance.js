@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox, Select } from 'antd';
 
-const Insurance = navigation => {
+const Insurance = ({ navigation, tempFormStyle }) => {
   const { previous, next } = navigation;
   const { TextArea } = Input;
   const insuranceSources = [
@@ -14,7 +14,7 @@ const Insurance = navigation => {
   ];
 
   return (
-    <>
+    <div style={tempFormStyle}>
       <h1>Insurance</h1>
       <Form
         layout="vertical"
@@ -42,7 +42,7 @@ const Insurance = navigation => {
           </Button>
         </Form.Item>
       </Form>
-    </>
+    </div>
   );
 };
 

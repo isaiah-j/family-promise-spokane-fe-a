@@ -10,11 +10,11 @@ import {
 } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import Checkbox from 'antd/lib/checkbox/Checkbox';
-const FamilyMembers = ({ navigation, formData, setForm }) => {
+const FamilyMembers = ({ navigation, formData, setForm, tempFormStyle }) => {
   const { previous, next } = navigation;
-  console.log(formData);
+
   return (
-    <>
+    <div style={tempFormStyle}>
       <h1>Family Members</h1>
       <Form layout="vertical">
         <Form.Item>
@@ -75,7 +75,10 @@ const FamilyMembers = ({ navigation, formData, setForm }) => {
               <Form.Item>
                 <Button
                   type="dashed"
-                  onClick={() => add()}
+                  onClick={() => {
+                    console.log(formData.familyMember);
+                    add();
+                  }}
                   block
                   icon={<PlusOutlined />}
                 >
@@ -94,7 +97,7 @@ const FamilyMembers = ({ navigation, formData, setForm }) => {
           </Button>
         </Form.Item>
       </Form>
-    </>
+    </div>
   );
 };
 

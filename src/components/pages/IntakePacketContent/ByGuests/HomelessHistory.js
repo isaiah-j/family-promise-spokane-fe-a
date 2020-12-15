@@ -1,9 +1,9 @@
 import React from 'react';
 import { Form, Input, InputNumber, DatePicker, Button, Checkbox } from 'antd';
-const HomelessHistory = ({ navigation }) => {
+const HomelessHistory = ({ navigation, tempFormStyle }) => {
   const { previous, next } = navigation;
   return (
-    <>
+    <div style={tempFormStyle}>
       <h1>History</h1>
       <Form layout="vertical">
         <Form.Item label="Last permanent address (last address you lived where you did not consider yourself to be homeless">
@@ -51,7 +51,7 @@ const HomelessHistory = ({ navigation }) => {
           </Button>
         </Form.Item>
       </Form>
-    </>
+    </div>
   );
 };
 

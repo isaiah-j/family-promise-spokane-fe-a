@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input, Button, Space, Checkbox, Row, Col } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
-const RaceEthnicityInfo = ({ navigation }) => {
+const RaceEthnicityInfo = ({ navigation, tempFormStyle }) => {
   const { previous, next } = navigation;
   const options = [
     'Hispanic/Latino',
@@ -15,7 +15,7 @@ const RaceEthnicityInfo = ({ navigation }) => {
     'Refuse',
   ];
   return (
-    <>
+    <div style={tempFormStyle}>
       <h1>Race/Ethnicity Info</h1>
       <h3>
         Please answer the following questions about race. Check all that apply
@@ -71,7 +71,7 @@ const RaceEthnicityInfo = ({ navigation }) => {
           </Button>
         </Form.Item>
       </Form>
-    </>
+    </div>
   );
 };
 

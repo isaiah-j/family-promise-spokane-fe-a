@@ -1,12 +1,12 @@
 import React from 'react';
 import { Form, Button, DatePicker, Checkbox } from 'antd';
 
-const DomesticViolence = ({ navigation }) => {
+const DomesticViolence = ({ navigation, tempFormStyle }) => {
   const { previous, next } = navigation;
   return (
-    <>
+    <div style={tempFormStyle}>
       <h1>Domestic DomesticViolence</h1>
-      <Form layout="vertical" style={{ width: '50%' }}>
+      <Form layout="vertical">
         <Form.Item label="Are you Currently fleeing a DV situation?">
           <Checkbox>Y</Checkbox>
           <Checkbox>N</Checkbox>
@@ -42,7 +42,7 @@ const DomesticViolence = ({ navigation }) => {
           </Button>
         </Form.Item>
       </Form>
-    </>
+    </div>
   );
 };
 
