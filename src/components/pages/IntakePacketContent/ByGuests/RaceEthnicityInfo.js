@@ -26,18 +26,12 @@ const RaceEthnicityInfo = ({ navigation, tempFormStyle }) => {
           {(fields, { add, remove }) => (
             <>
               {fields.map(field => (
-                <Space
-                  key={field.key}
-                  style={{ display: 'flex', marginBottom: 8 }}
-                  align="text-top"
-                >
-                  <Form.Item label="Fullname">
-                    <Input placeholder="First Last" />
-                  </Form.Item>
-                  <Checkbox.Group style={{ width: '100%' }}>
+                <Space key={field.key}>
+                  <p>Name Full</p>
+                  <Checkbox.Group>
                     <Row>
                       {options.map((race, key) => (
-                        <Col span={3}>
+                        <Col span={3} style={{ display: 'inline-block' }}>
                           <Form.Item label={race}>
                             <Checkbox value={key} />
                           </Form.Item>

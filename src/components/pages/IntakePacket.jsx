@@ -86,7 +86,11 @@ const defaultData = {
 };
 
 const IntakePacket = () => {
-  const tempFormStyle = { marginLeft: '20%', marginRight: '15%' };
+  const tempFormStyle = {
+    marginLeft: '20%',
+    marginTop: '50px',
+    maxWidth: '900px',
+  };
 
   const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({ initialStep: 0, steps });
