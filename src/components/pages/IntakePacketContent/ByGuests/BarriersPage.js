@@ -17,7 +17,7 @@ const BarriersPage = ({ navigation, tempFormStyle }) => {
   ];
   return (
     <div style={tempFormStyle}>
-      <Card title="Barriers" bordered={false} style={{ width: 800 }}>
+      <Card title="Barriers" bordered={false}>
         <Form.Item>
           <Button type="primary" htmlType="button" onClick={previous}>
             Previous

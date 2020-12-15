@@ -21,7 +21,7 @@ const FamilyDemographics = ({
 
   return (
     <div style={tempFormStyle}>
-      <Card title="Family Demographics" bordered={false} style={{ width: 800 }}>
+      <Card title="Family Demographics" bordered={false}>
         <Form.Item>
           <Button type="primary" htmlType="button" onClick={previous}>
             Previous

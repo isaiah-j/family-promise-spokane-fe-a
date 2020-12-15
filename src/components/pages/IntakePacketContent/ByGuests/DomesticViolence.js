@@ -7,11 +7,7 @@ const DomesticViolence = ({ navigation, tempFormStyle, formData, setForm }) => {
 
   return (
     <div style={tempFormStyle}>
-      <Card
-        title="Domestic DomesticViolence"
-        bordered={false}
-        style={{ width: 800 }}
-      >
+      <Card title="Domestic DomesticViolence" bordered={false}>
         <Form.Item>
           <Button type="primary" htmlType="button" onClick={previous}>
             Previous

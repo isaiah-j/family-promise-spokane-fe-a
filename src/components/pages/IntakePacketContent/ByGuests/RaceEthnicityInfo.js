@@ -16,7 +16,7 @@ const RaceEthnicityInfo = ({ navigation, tempFormStyle }) => {
   ];
   return (
     <div style={tempFormStyle}>
-      <Card title="Race/Ethnicity Info" bordered={false} style={{ width: 800 }}>
+      <Card title="Race/Ethnicity Info" bordered={false}>
         <Form.Item>
           <Button type="primary" htmlType="button" onClick={previous}>
             Previous

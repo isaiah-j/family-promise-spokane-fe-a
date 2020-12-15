@@ -8,7 +8,7 @@ const ContactInfo = ({ navigation, formData, setForm, tempFormStyle }) => {
 
   return (
     <div style={tempFormStyle}>
-      <Card title="Contact Info" bordered={false} style={{ width: 800 }}>
+      <Card title="Contact Info" bordered={false}>
         <Form layout="vertical" span={18}>
           <Form.Item>
             <Button

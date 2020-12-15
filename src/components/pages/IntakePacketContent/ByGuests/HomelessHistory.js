@@ -12,7 +12,7 @@ const HomelessHistory = ({ navigation, tempFormStyle }) => {
   const { previous, next } = navigation;
   return (
     <div style={tempFormStyle}>
-      <Card title="History" bordered={false} style={{ width: 800 }}>
+      <Card title="History" bordered={false}>
         <Form.Item>
           <Button type="primary" htmlType="button" onClick={previous}>
             Previous
