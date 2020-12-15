@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Space, Select } from 'antd';
+import { Form, Input, Button, Space, Select, Card } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 const FamilyMembers = ({ navigation, formData, setForm, tempFormStyle }) => {
   const { previous, next } = navigation;
@@ -48,48 +48,7 @@ const FamilyMembers = ({ navigation, formData, setForm, tempFormStyle }) => {
 
   return (
     <div style={tempFormStyle}>
-      <h1>Family Members</h1>
-      <Form layout="vertical">
-        <Form.List name="users">
-          {(fields, { add, remove }) => (
-            <>
-              {fields.map(field => (
-                <Space
-                  key={field.key}
-                  style={{
-                    display: 'flex',
-                    marginBottom: 8,
-                    align: 'baseline',
-                  }}
-                >
-                  <Form.Item label="Fullname">
-                    <Input placeholder="First Last" />
-                  </Form.Item>
-                  <Form.Item label="Relationship">
-                    <Select placeholder="Please select an option">
-                      <Select.Option value="self">Self</Select.Option>
-                      <Select.Option value="spouse">Spouse</Select.Option>
-                      <Select.Option value="child">Child</Select.Option>
-                      <Select.Option value="sibling">Sibling</Select.Option>
-                      <Select.Option value="other">Other</Select.Option>
-                    </Select>
-                  </Form.Item>
-                  <MinusCircleOutlined onClick={() => remove(field.name)} />
-                </Space>
-              ))}
-              <Form.Item>
-                <Button
-                  type="dashed"
-                  onClick={add}
-                  block
-                  icon={<PlusOutlined />}
-                >
-                  Add field
-                </Button>
-              </Form.Item>
-            </>
-          )}
-        </Form.List>
+      <Card title="Family Members" bordered={false} style={{ width: 800 }}>
         <Form.Item>
           <Button type="primary" htmlType="button" onClick={previous}>
             Previous
@@ -98,7 +57,49 @@ const FamilyMembers = ({ navigation, formData, setForm, tempFormStyle }) => {
             Next
           </Button>
         </Form.Item>
-      </Form>
+        <Form layout="vertical">
+          <Form.List name="users">
+            {(fields, { add, remove }) => (
+              <>
+                {fields.map(field => (
+                  <Space
+                    key={field.key}
+                    style={{
+                      display: 'flex',
+                      marginBottom: 8,
+                      align: 'baseline',
+                    }}
+                  >
+                    <Form.Item label="Fullname">
+                      <Input placeholder="First Last" />
+                    </Form.Item>
+                    <Form.Item label="Relationship">
+                      <Select placeholder="Please select an option">
+                        <Select.Option value="self">Self</Select.Option>
+                        <Select.Option value="spouse">Spouse</Select.Option>
+                        <Select.Option value="child">Child</Select.Option>
+                        <Select.Option value="sibling">Sibling</Select.Option>
+                        <Select.Option value="other">Other</Select.Option>
+                      </Select>
+                    </Form.Item>
+                    <MinusCircleOutlined onClick={() => remove(field.name)} />
+                  </Space>
+                ))}
+                <Form.Item>
+                  <Button
+                    type="dashed"
+                    onClick={add}
+                    block
+                    icon={<PlusOutlined />}
+                  >
+                    Add field
+                  </Button>
+                </Form.Item>
+              </>
+            )}
+          </Form.List>
+        </Form>
+      </Card>
     </div>
   );
 };

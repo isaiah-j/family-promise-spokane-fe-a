@@ -10,6 +10,18 @@ const ContactInfo = ({ navigation, formData, setForm, tempFormStyle }) => {
     <div style={tempFormStyle}>
       <Card title="Contact Info" bordered={false} style={{ width: 800 }}>
         <Form layout="vertical" span={18}>
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="button"
+              onClick={() => {
+                console.log(formData);
+                next();
+              }}
+            >
+              Next
+            </Button>
+          </Form.Item>
           <h3>Please included both adults personal phone numbers:</h3>
           <Space style={{ display: 'flex' }}>
             <Form.Item>
@@ -82,18 +94,6 @@ const ContactInfo = ({ navigation, formData, setForm, tempFormStyle }) => {
               ></Input>
             </Form.Item>
           </Space>
-          <Form.Item>
-            <Button
-              type="primary"
-              htmlType="button"
-              onClick={() => {
-                console.log(formData);
-                next();
-              }}
-            >
-              Next
-            </Button>
-          </Form.Item>
         </Form>
       </Card>
     </div>
