@@ -3,7 +3,7 @@ import React from 'react';
 
 const UserProfile = () => {
   return (
-    <div className="container">
+    <div className="user-container">
       <div className="profile-header-container">
         <header className="profile-header"></header>
         <img
