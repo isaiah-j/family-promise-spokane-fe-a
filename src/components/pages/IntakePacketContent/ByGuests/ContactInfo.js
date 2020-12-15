@@ -34,15 +34,26 @@ const ContactInfo = ({ navigation, formData, setForm, tempFormStyle }) => {
         </Form.Item>
         <Space style={{ display: 'flex', marginBottom: 8 }} align="baseline">
           <Form.Item>
-            <Input placeholder="Full Name"></Input>
+            <Input
+              placeholder="Full Name"
+              name="familyInfo.phone_two.name"
+              value={familyInfo.phone_two.name}
+              onChange={setForm}
+            ></Input>
           </Form.Item>
           <Form.Item>
-            <Input placeholder="Number"></Input>
+            <Input
+              placeholder="Number"
+              name="familyInfo.phone_two.number"
+              value={familyInfo.phone_two.number}
+              onChange={setForm}
+            ></Input>
           </Form.Item>
         </Space>
         <Form.Item>
           <Checkbox>Safe to leave message</Checkbox>
         </Form.Item>
+        {/*Missing safe alternitive contact table in database*/}
         <h3>Safe alternitive contact:</h3>
         <Space style={{ display: 'flex', marginBottom: 8 }} align="baseline">
           <Form.Item>
@@ -55,14 +66,31 @@ const ContactInfo = ({ navigation, formData, setForm, tempFormStyle }) => {
         <h3>Emergancy Contact</h3>
         <Space style={{ display: 'flex', marginBottom: 8 }} align="baseline">
           <Form.Item>
-            <Input placeholder="Full Name"></Input>
+            <Input
+              placeholder="Full Name"
+              name="familyInfo.emergencyContact.name"
+              value={familyInfo.emergencyContact.name}
+              onChange={setForm}
+            ></Input>
           </Form.Item>
           <Form.Item>
-            <Input placeholder="Number"></Input>
+            <Input
+              placeholder="Number"
+              name="familyInfo.emergencyContact.number"
+              value={familyInfo.emergencyContact.number}
+              onChange={setForm}
+            ></Input>
           </Form.Item>
         </Space>
         <Form.Item>
-          <Button type="primary" htmlType="button" onClick={next}>
+          <Button
+            type="primary"
+            htmlType="button"
+            onClick={() => {
+              console.log(formData);
+              next();
+            }}
+          >
             Next
           </Button>
         </Form.Item>

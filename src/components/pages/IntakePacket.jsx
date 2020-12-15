@@ -10,10 +10,11 @@ import ChildSchoolInfo from './IntakePacketContent/ByGuests/ChildSchoolInfo';
 import DomesticViolence from './IntakePacketContent/ByGuests/DomesticViolence';
 import HomelessHistory from './IntakePacketContent/ByGuests/HomelessHistory';
 import Insurance from './IntakePacketContent/ByGuests/Insurance';
-
+import FamilyDemographics from './IntakePacketContent/ByGuests/FamilyDemographics';
 const steps = [
   { id: 'ContactInfo' },
   { id: 'FamilyMembers' },
+  { id: 'FamilyDemographics' },
   { id: 'RaceEthnicityInfo' },
   { id: 'BarriersPage' },
   { id: 'ChildSchoolInfo' },
@@ -85,7 +86,7 @@ const defaultData = {
 };
 
 const IntakePacket = () => {
-  const tempFormStyle = { marginLeft: '25%', marginRight: '25%' };
+  const tempFormStyle = { marginLeft: '20%', marginRight: '15%' };
 
   const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({ initialStep: 0, steps });
@@ -96,6 +97,8 @@ const IntakePacket = () => {
       return <ContactInfo {...props} />;
     case 'FamilyMembers':
       return <FamilyMembers {...props} />;
+    case 'FamilyDemographics':
+      return <FamilyDemographics {...props} />;
     case 'RaceEthnicityInfo':
       return <RaceEthnicityInfo {...props} />;
     case 'BarriersPage':

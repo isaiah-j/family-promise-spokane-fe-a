@@ -1,9 +1,10 @@
 import React from 'react';
-import { Form, Input, Button, Checkbox, Select } from 'antd';
+import { Form, Input, Button, Checkbox, Select, InputNumber } from 'antd';
 
-const Insurance = ({ navigation, tempFormStyle }) => {
+const Insurance = ({ navigation, tempFormStyle, formData, setForm }) => {
   const { previous, next } = navigation;
-  const { TextArea } = Input;
+  const { familyInfo, familyMember } = formData;
+
   const insuranceSources = [
     'State',
     'Private',
@@ -12,7 +13,7 @@ const Insurance = ({ navigation, tempFormStyle }) => {
     'Medicare',
     'Other',
   ];
-
+  console.log(familyInfo.insurance.members_covered);
   return (
     <div style={tempFormStyle}>
       <h1>Insurance</h1>
@@ -25,19 +26,23 @@ const Insurance = ({ navigation, tempFormStyle }) => {
         </Form.Item>
         <Form.Item label="Health insurance source ">
           <Select>
-            {insuranceSources.map(source => (
-              <option>{source}</option>
+            {insuranceSources.map((source, key) => (
+              <Select.Option key={key}>{source}</Select.Option>
             ))}
           </Select>
         </Form.Item>
         <Form.Item label="Household Members covered">
-          <TextArea />
+          <InputNumber
+            name="familyInfo.insurance.members_covered"
+            value={familyInfo.insurance.members_covered}
+            onChange={setForm}
+          />
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="button" onClick={previous}>
             Previous
           </Button>
-          <Button type="primary" htmlType="submit" onClick={next}>
+          <Button type="primary" htmlType="button" onClick={next}>
             Next
           </Button>
         </Form.Item>

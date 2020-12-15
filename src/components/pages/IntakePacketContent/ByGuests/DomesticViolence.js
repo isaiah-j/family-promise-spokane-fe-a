@@ -1,15 +1,19 @@
 import React from 'react';
-import { Form, Button, DatePicker, Checkbox } from 'antd';
+import { Form, Button, DatePicker, Checkbox, Radio } from 'antd';
 
-const DomesticViolence = ({ navigation, tempFormStyle }) => {
+const DomesticViolence = ({ navigation, tempFormStyle, formData, setForm }) => {
   const { previous, next } = navigation;
+  const { familyInfo } = formData;
+
   return (
     <div style={tempFormStyle}>
       <h1>Domestic DomesticViolence</h1>
       <Form layout="vertical">
         <Form.Item label="Are you Currently fleeing a DV situation?">
-          <Checkbox>Y</Checkbox>
-          <Checkbox>N</Checkbox>
+          <Radio.Group>
+            <Checkbox>Y</Checkbox>
+            <Checkbox>N</Checkbox>
+          </Radio.Group>
         </Form.Item>
         <Form.Item label="If so do you wish to be entered in HMIS anonymously? ">
           <Checkbox>Y</Checkbox>
@@ -37,7 +41,7 @@ const DomesticViolence = ({ navigation, tempFormStyle }) => {
           <Button type="primary" htmlType="button" onClick={previous}>
             Previous
           </Button>
-          <Button type="primary" htmlType="submit" onClick={next}>
+          <Button type="primary" htmlType="button" onClick={next}>
             Next
           </Button>
         </Form.Item>

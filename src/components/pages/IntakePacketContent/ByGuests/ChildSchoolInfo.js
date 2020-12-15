@@ -72,7 +72,7 @@ const ChildSchoolInfo = ({ navigation, tempFormStyle }) => {
           <Button type="primary" htmlType="button" onClick={previous}>
             Previous
           </Button>
-          <Button type="primary" htmlType="submit" onClick={next}>
+          <Button type="primary" htmlType="button" onClick={next}>
             Next
           </Button>
         </Form.Item>
