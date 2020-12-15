@@ -7,40 +7,77 @@ import PeopleIcon from '@material-ui/icons/People';
 import InfoIcon from '@material-ui/icons/Info';
 import { tableIcons } from '../../../utils/tableIcons';
 import FlagIcon from '@material-ui/icons/Flag';
+import CardShadow from '../../CardShadow';
+import FlagGuest from '../../modals/FlagGuest';
+import GuestNotes from '../../modals/GuestNotes';
+import { CopyrightOutlined } from '@material-ui/icons';
+import LoadingComponent from '../../common/LoadingComponent';
 
 const Guests = () => {
+  const [loading, setLoading] = useState(true);
+
   const [state, setState] = useState({
     columns: [
       { title: 'First', field: 'first_name', type: 'hidden' },
       { title: 'Last ', field: 'last_name' },
-      { title: 'DOB', field: 'dob', type: 'date' },
+      { title: 'DOB', field: 'DOB', type: 'date' },
+      { title: 'relationship', field: 'relationship' },
     ],
-    data: [
-      {
-        first_name: 'Richter',
-        last_name: 'Belmont',
-        dob: new Date(),
-        flag_level: 1,
-      },
-      {
-        first_name: 'Trevor',
-        last_name: 'Belmont',
-        dob: new Date(),
-        flag_level: 2,
-      },
-      {
-        first_name: 'Simon',
-        last_name: 'Belmont',
-        dob: new Date(),
-        flag_level: 3,
-      },
-    ],
+    data: [],
   });
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get('/members')
+      .then(res => {
+        let copy = { ...state };
+
+        let formattedData = res.data.map(member => {
+          return {
+            ...member.demographics,
+            ...member.bearers,
+            ...member.schools,
+            flag_level: 0,
+            ...member,
+          };
+        });
+
+        copy.data.push(...formattedData);
+
+        setState(copy);
+      })
+      .catch(err => {
+        alert('error');
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  const [isFlagOpen, setIsFlagOpen] = useState(false);
+  const [isNotesOpen, setIsNotesOpen] = useState(false);
+  const [guestId, setGuestId] = useState(null);
 
   const history = useHistory();
 
+  if (loading) {
+    return (
+      <div className="guest-table-container">
+        <LoadingComponent />
+      </div>
+    );
+  }
+
   return (
     <div className="guest-table-container">
+      {isNotesOpen && <GuestNotes setIsNotesOpen={setIsNotesOpen} />}
+      {isFlagOpen && (
+        <FlagGuest
+          setIsFlagOpen={setIsFlagOpen}
+          setState={setState}
+          guestId={guestId}
+        />
+      )}
       <div className="guest-table">
         <MaterialTable
           options={{
@@ -64,7 +101,8 @@ const Guests = () => {
               tooltip: 'Family Members',
               onClick: (event, rowData) => {
                 // Do save operation
-                history.push(`/family/${rowData.fam_id}/members`);
+                console.log(rowData);
+                history.push(`/family/${rowData.family_id}`);
               },
             },
             {
@@ -72,13 +110,15 @@ const Guests = () => {
               tooltip: 'Notes',
               onClick: (event, rowData) => {
                 // Do save operation
+                setIsNotesOpen(true);
               },
             },
             {
               icon: FlagIcon,
               tooltip: 'Flag Guest',
               onClick: (event, rowData) => {
-                // Do save operation
+                setIsFlagOpen(true);
+                setGuestId(rowData.id);
               },
             },
             {
@@ -89,21 +129,6 @@ const Guests = () => {
               },
             },
           ]}
-          editable={
-            {
-              // onRowRedirect: (newData) =>
-              //     new Promise((resolve) => {
-              //         setTimeout(() => {
-              //             resolve();
-              //             setState((prevState) => {
-              //                 const data = [...prevState.data];
-              //                 data.push(newData);
-              //                 return { ...prevState, data };
-              //             });
-              //         }, 600);
-              //     }),
-            }
-          }
         />
       </div>
     </div>

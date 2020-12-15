@@ -11,6 +11,9 @@ body {
     justify-content: center;
 }
 
+@import './guest-notes';
+@import './flag-guest';
+@import './user-profile';
 @import './guest-table';
 @import './sidebar';
 @import './navbar';
