@@ -4,4 +4,19 @@
 // You can have multiple action creators per file if it makes sense to the purpose those action creators are serving.
 // Declare action TYPES at the top of the file
 
-export const setCurrentUser = () => {};
+import { axiosWithAuth } from '../../api/axiosWithAuth';
+
+export const setCurrentUser = () => async dispatch => {
+  dispatch({ type: 'LOG_IN' });
+  dispatch({ type: 'SET_LOADING', payload: true });
+  try {
+    let currentUser = await axiosWithAuth()
+      .get('/users/me')
+      .then(res => res.data.user);
+    dispatch({ type: 'SET_CURRENT_USER', payload: currentUser });
+  } catch (error) {
+    alert('error');
+  } finally {
+    dispatch({ type: 'SET_LOADING', payload: false });
+  }
+};
