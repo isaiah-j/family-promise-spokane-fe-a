@@ -27,6 +27,7 @@ import IntakePacket from './components/pages/IntakePacket';
 import Analytics from './components/pages/Analytics';
 import Guests from './components/pages/Guests/Guests';
 import FamilyMembers from './components/pages/FamilyMembers/Family';
+import Logout from './utils/logout';
 import './styles/app.scss';
 import { rootReducer } from './state/reducers/index';
 import { createStore, applyMiddleware } from 'redux';
